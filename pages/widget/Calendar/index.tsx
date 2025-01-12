@@ -49,6 +49,7 @@ const Block = styled("p", {
   alignItems: "center",
   gap: "2rem",
   padding: "0.5rem 0.5rem",
+  justifyContent: "space-between",
 });
 
 const FlexRow = styled("p", {
@@ -154,7 +155,6 @@ const Input = styled("input", {
   padding: "0.5rem",
   borderRadius: "0.5rem",
   outline: "none",
-  flexGrow: 1,
 });
 
 function Calendar() {
@@ -361,8 +361,11 @@ function Calendar() {
         <AddTaskButton onClick={open}>Add Task</AddTaskButton>
       </Header>
       <Block>
-        <AddTaskButton onClick={handlePrevMonth}>Prev</AddTaskButton>
-        <AddTaskButton onClick={handleNextMonth}>Next</AddTaskButton>
+        <FlexRow>
+          <AddTaskButton onClick={handlePrevMonth}>Prev</AddTaskButton>
+          <AddTaskButton onClick={handleNextMonth}>Next</AddTaskButton>
+        </FlexRow>
+        <Text>{getMonthDetails(currentMonth)?.currentMonthName}</Text>
         <Input
           placeholder="Enter keyword to search"
           type="text"
